@@ -1,0 +1,73 @@
+//for
+
+<?php
+
+$fruits = array("banana", "apple", "grape");
+print $fruits[0] . "\n";
+print $fruits[1] . "\n";
+print $fruits[2] . "\n";
+
+for ($i = 0; $i <= 2; $i++) {
+    print $fruits[$i] . "\n";
+}
+
+for ($i = 5; $i <= 10; $i++) {
+    print "user{$i}\n";
+}
+
+
+//function
+
+<?php
+
+function sum($a, $b) {
+    $result = $a + $b;
+    return $result;
+}
+
+function sub($a, $b) {
+    $result = $a - $b;
+    return $result;
+}
+
+function times($a, $b) {
+    $result = $a * $b;
+    return $result;
+}
+
+$a = $argv[1];
+$b = $argv[2];
+$sum_result = sum($a, $b);
+$sub_result = sub($a, $b);
+$times_result = times($a, $b);
+print "SUM: " . $sum_result . "\n";
+print "SUB: " . $sub_result . "\n";
+print "TIMES: " . $times_result . "\n";
+
+
+<?php
+
+function get_country_greeting($country) {
+    $greeting = array(
+        'jp' => 'こんにちは',
+        'vn' => 'Xin chao',
+        'en' => 'Hello'
+        );
+        $greeting = $greeting[$country];
+        return $greeting;
+}
+
+function general_message($greeting, $name) {
+    $message = "{$greeting}! {$name}!";
+    return $message;
+}
+
+$name = $argv[1];
+$country = $argv[2];
+var_dump($name, $country);//debug
+
+$greeting = get_country_greeting($country);
+var_dump($greeting);
+$message = general_message($greeting, $name);
+print $message;
+
