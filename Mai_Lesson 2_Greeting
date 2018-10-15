@@ -1,0 +1,23 @@
+<?php
+
+function get_country_greeting($country) {
+    $greeting = array(
+        'jp' => 'こんにちは',
+        'vn' => 'Xin chào',
+        'en' => 'Hello'
+    );
+    $greeting = $greeting[$country];
+    return $greeting;
+}
+
+function generate_message($greeting, $name) {
+    $message = "{$greeting}! {$name}!" ;
+    return $message;
+}
+
+$name = $argv[1];
+$country = $argv[2];
+
+$greeting = get_country_greeting($country);
+$message = generate_message($greeting, $name);
+print $message;
