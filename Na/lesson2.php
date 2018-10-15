@@ -46,9 +46,9 @@ function times ($a, $b) {
     
 $a = $argv[1]; //insert 1st argument
 $b = $argv[2]; //insert 2nd argument
-$result = sum($a, $b). "\n";
-$result = sub($a, $b). "\n" ;
-$result = times($a, $b). "\n" ;   //when run the function, insert $result
+$sum_result = sum($a, $b). "\n";
+$sub_result = sub($a, $b). "\n" ;
+$times_result = times($a, $b). "\n" ;   //when run the function, insert $result
 print $sum_result;
 print $sub_result;
 print $times_result;
