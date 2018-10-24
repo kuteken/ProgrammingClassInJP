@@ -1,0 +1,15 @@
+<?php
+
+//$array = array("A", "B", "C");
+//foreach ($array as $value) {
+//    print $value;
+//}
+
+$array = [
+    "Miki" => 30, //key => value
+    "Na"   => 20,
+    "Huy"  => 1
+    ];
+    foreach ($array as $name => $age) {
+        print "{$name} is {$age} years old!\n";
+    }
