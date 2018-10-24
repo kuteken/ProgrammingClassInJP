@@ -1,0 +1,44 @@
+<?php
+ define("TAX_RATE",  10);
+
+$product_number = $argc - 1;// 今は合計もあるから-2にします。
+for ($i = 1; $i <= $product_number; $i++) { // ここで$product_numberを使って、forの回数を制限する
+  $product_name = $argv[$i];
+  $shopping_cart[$product_name] = ""; // $xxx[] をすると、$xxx配列の中に新しい箱を作れます。
+}
+//var_dump($shopping_cart);
+$product_list = [
+    'Coca'    => 10000,
+    'Pepsi'   => 10000,
+    'Sprite'  => 15000,
+    'Redbull' => 20000,
+];
+//var_dump($product_list, array_intersect_key($product_list, $shopping_cart));
+$shopping_cart = array_intersect_key($product_list, $shopping_cart);
+
+$product_receipt = "";
+$subtotal = 0;
+foreach ($shopping_cart as $product_name => $price) {
+    $product_receipt .= "{$product_name}\t\t  {$price}\n";
+    $subtotal += $price;
+}
+
+//$subtotal = $argv[1];
+$tax = $subtotal*TAX_RATE*0.01;//percent
+$tax_rate = TAX_RATE;
+$total = $subtotal+$tax;
+
+$result = <<<"EOT"
+===========================
+Receipt
+---------------------------
+{$product_receipt}
+---------------------------
+Subtotal          {$subtotal}
+Tax({$tax_rate}%)           {$tax}
+---------------------------
+Total             {$total}   
+===========================";
+EOT;
+
+print $result;
