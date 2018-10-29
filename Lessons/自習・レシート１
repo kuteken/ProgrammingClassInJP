@@ -1,0 +1,51 @@
+<?php
+
+define("TAX_RATE", 10);
+
+$product_list = [
+    'Coca'    => 10000,
+    'Pepsi'   => 10000,
+    'Sprite' => 15000,
+    'Redbull' => 20000,
+];
+
+//$product_number = $argc - 1;
+//for ($i=1; $i <= $product_number; $i++) {
+//    $product_name = $argv[$i];
+//    $shopping_cart[$product_name] = "";
+//}
+
+array_shift($argv);
+$shopping_cart = array_flip($argv);
+$shopping_cart = array_intersect_key($product_list, $shopping_cart);
+
+$product_receipt = "";
+$subtotal = 0;
+foreach ($shopping_cart as $product_name => $price) {
+    $formatted_price = number_format($price);
+    $product_receipt .= "{$product_name}\t\t{$formatted_price}\n";
+    $subtotal += $price;
+}
+$formatted_subtotal = number_format($subtotal);
+ 
+$tax_rate = TAX_RATE;
+$tax = $subtotal * $tax_rate / 100;
+$formatted_tax    = number_format($tax);
+
+$total = $subtotal + $tax;
+$formatted_total    = number_format($total);
+
+$result = <<< "EOT"
+===========================
+Receipt
+---------------------------
+{$product_receipt}
+---------------------------
+Subtotal\t{$formatted_subtotal}
+Tax({$tax_rate}%)\t{$formatted_tax}
+---------------------------
+Total\t\t{$formatted_total}
+===========================
+EOT;
+
+print $result;
