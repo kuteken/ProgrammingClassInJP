@@ -1,0 +1,34 @@
+//file .html
+
+<html>
+    <head>
+        <title>"This is first title"</title>
+        <link type="text/css" rel="stylesheet" href="style.css"/>
+    </head>
+    <body>
+        <p style="color: #FF0000; background-color: #00FF00">Hello world!</p>
+        <p style="color: #0000FF;">Hello Miki!</p>
+        <p>Hello Mai!</p>
+        <p class="test1 test2">Hello Na!</p>
+        <p class="test2">Hello Chang!</p>
+        <p id="test3">Hello Mr!</p>
+    </body>
+</html>
+
+//file .css
+
+p {
+    color: red;
+}
+
+.test1 {
+    color: blue;
+}
+
+.test2 {
+    font-size: 24px;
+}
+
+#test3 {
+    background-color: #AA00AA;
+}
